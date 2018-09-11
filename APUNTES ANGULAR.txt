@@ -1,0 +1,5 @@
+los componentes en angular van en la carpeta app con su respectiva nomenclatura:
+
+componente.component.ts
+componente.component.html
+

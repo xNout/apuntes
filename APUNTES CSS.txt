@@ -1,0 +1,318 @@
+SOLAMENTE TRATA DE USAR CLASES Y NO IDES.
+
+Cuando quieres limitar, por ejemplo a que solo una etiqueta p que este dentro de un div tenga un estilo entonces lo harias asi:
+
+div p
+{
+	
+}
+
+y para multiples usos asi
+
+h1, h2
+{
+	
+}
+
+a los dos titulos se les pondrá esto.
+
+TAMBIEN PODEMOS HACERLO USANDO UN ATRIBUTO DE UNA ETIQUETA, POR EJEMPLO LA ETIQUETA 'a'
+
+a[href="www.google.com"]{
+	color: red;
+}
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+Este ejemplo nos dice que solo las etiquetas 'a' las cuales tengan en su atributo 'href' dicho LINK se les aplicara ese estilo.
+
+**UNIDADES DE MEDIDA**
+
+px	: PIXELES
+pt  : PUNTOS
+cm  : CENTIMETROS
+in  : PULGADAS
+%	: porcentajes
+
+**UNIDADES DE COLOR**
+
+#		: HEXADECIMAL
+rgb()	: R,G,B
+
+**TIPO DE ELEMENTOS**
+
+bloque: Son los elementos que abarcan todo el documento.
+
+linea: Son los elementos que abarcan solo que ocupan.
+
+Y PARA ESTA CONFIGURACION EXISTE: INLINE, INLINE-BLOCK, BLOCK.
+
+POSICIONAMIENTO DE CAJAS
+
+MODIFICANDO ESTAS PROPIEDADES PODEMOS MOVER LAS CAJAS Y EXISTEN DIFERENTES TIPOS DE POSICIONAMIENTOS.
+
+.class
+{
+	position: ;
+	top: ;
+	bottom: ;
+	left:;
+	right:;
+}
+
+Entre los que existen están:
+
+*static: Inamobible.
+
+*relative: Este posicionamiento permite mover la caja de forma libre hacia cualquier lado PERO cuando se la desplaza, las otras cajas no se mueven y el espacio que ocupaba queda ahí libre.
+
+*absolute: Este posicionamiento permite de igual manera mover las cajas como en relative PERO la diferencia es que las otras cajas siguientes se desplazan hacia arriba ocupando el espacio que tenia la misma.
+
+*fixed:Funciona igual que la absolute PERO esta se queda estatica y se mueve junto al scroll
+
+FLOTAR
+
+float: left y right;
+
+TUTORIAL SELECTORES
+
+margin
+padding
+color
+border
+
+
+**TIPOS DE DISPLAY**
+
+inline | block | none | inline-block | flex
+
+none -> ocultarlos, eliminarlos
+
+visibility: hidden; -> oculta pero deja el espacio que ocupaba
+
+
+**Overflow**
+
+Esta propiedad por ejemplo nos sirve para cuando tengamos una caja con texto y el texto sobrepase el ancho y sobresalga de la caja, para eso podemos usar overflow.
+
+overflow: hidden;
+
+También podemos usar por ejemplo cuando querramos que se vea todo el contenido de la caja sin que se desborde, entonces se agregaria un scroll para ver todo el contenido, y para eso usamos tambien esta propiedad y la ponemos en auto.
+
+
+**Z-INDEX**
+
+
+z-index; es una propiedad que permite decidir que elemento se mostrara primero, por ejemplo con esto podemos posicionar cajas y hacer que se muestren por encima de todos los elementos.
+
+
+**SOMBRAS**
+
+/**
+ *
+ * Syntax: horizontal, vertical, difuminado, color
+ *
+ * text-shadow: 1px 1px 1px #ccc;
+ */
+
+ **BORDES RADIOS**
+
+ Podemos hacer algo parecido a lo de los chats de facebook con esto:
+
+/*Syntax: superior-izquierda, superior-derecha, inferior-izquierda, inferior-derecha*/
+border-radius: 0px 10px 0px 10px;
+
+
+
+**NTH-CHILD**
+Esta funcion nos sirve para seleccionar un elemento desde un indice, por ejemplo cuando queramos solo seleccionar el segundo div del documento seria asi:
+
+div: nth-child(2){
+	/*estilos*/
+}
+
+**LISTAS CON IMAGENES**
+
+Se pueden poner en las listas imagenes usando:
+
+list-style-image:url();
+
+
+***TRANSFORM**
+/*
+Cosas que podemos hacer con transform:
+- Transladar elementos ( mover )
+- Escalar Elementos ( Agrandar, crecer )
+- Rotar Elementos ( numeros en deg, por ejemplo 20 grados: 20deg )
+- Sesgar Elementos ( skew )
+*/
+
+/* transform: translateY(300px); */
+/* transform: scale(1.2, 1.2); */
+/* transform: rotate(20deg); */
+/* transform:  skew( 20deg, 0deg); */
+
+/* Si por ejemplo quisiesemos poner algunas propiedades y no solo una iria asi */
+/* transform: translateY(300px) scale(1.2, 1.2); */
+/* poniendolas juntas y no separadas */
+
+
+
+**TRANSITION**
+
+Nos sirve generalmente para hacer animaciones.
+
+transition: -a_quien_sera_aplicada tiempo tipo_transicion;
+transition: all 1s ease;
+
+//Sirve para aplicar un retraso a la animacion
+transition-delay: tiempo;
+
+//TIPOS DE TRANSICION
+ease
+linear
+ease-in
+ease-out
+ease-in-out
+
+
+**ANIMACIONES**
+
+las animaciones se crean aparte anteponiendo el '@keyframes name_animation' y luego se la aplicamos a la clase que queramos por ejemplo:
+
+@keyframes mianimacion{
+	
+	//Podemos hacer animaciones usando from{ } to {}
+	// o usando porcentajes 50%{ } 100%{}	
+}
+
+.clase{
+				animacion duracion tipo repetir;
+	animation: mianimacion 1s ease infinite;
+}
+
+
+EJEMPLO DE UNA ANIMACION:
+
+@keyframes colores {
+	from {transform: scale(1, 1);;}
+	to{transform: scale(2, 2); } 
+	0%{/* background: #9eb3c2; */ transform: scale(1, 1)}
+	50%{/* background: #065a82; */ transform: scale(2, 2)}
+	100%{/* background: #21295c;  */transform: scale(1, 1)}
+}
+
+.caja{
+	margin: 200px auto;
+	width: 200px;
+	height: 200px;
+	background: #9EB3C2;
+	animation: colores 1s ease-in-out infinite;
+}
+
+
+***DISEÑO RESPONSIVE ADAPTABLE A DISPOSITIVOS MOBILES**
+
+Debes tener en cuenta que en diseño adaptable ya no se trabaja con pixeles sino con porcentajes, para empezar debes añadir el metaviewport en el head:
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+Esto nos servira para ir adaptando.
+
+*Mediaqueries*
+Esta nos sirve para poner condicionales, por ejemplo cuando el ancho del dispositivo sea de 800px se apliquen otros estilos.
+
+EJEMPLO:
+
+//Aqui especificamos que todos los estilos dentro de esta mediaqueries se aplicaran cuando el ancho maximo sea de 800px.
+
+//Existe max y min. Min seria lo contrario a max.
+
+@media screen and (max-width:800px) {
+
+//A partir de los 800px aplica estos estilos al main, aside y footer.
+	.main, aside, footer{
+		width: 100%;
+		font-size: 14px;
+	}
+}
+
+
+Flexbox es un conjunto de propiedades que nos permiten distribuir nuestros elementos de una forma flexible para mejores layouts / plantillas o diseños mas facilmente
+
+Para utilizar flexbox necesitamos un contenedor padre que tenga elementos hijos. Ya que a estos son los que se haran flexiblex.
+
+Flexbox se divide en 2 grupos de propiedades:
+	- Propiedades para los elementos padre
+	- Propiedades para los elementos hijo
+
+=================================
+Propiedades del contenedor padre:
+=================================
+
+- display:flex;
+	Nos permite habilitar que los elementos hijos sean flexibles
+
+- flex-direction:;
+	row | row-reverse | column | column-reverse
+
+- flex-wrap:;
+	no-wrap | wrap | wrap-reverse
+
+- flex-flow: <flex-direction> || flex-wrap;
+	Es un atajo de flex-direction y flex-wrap.
+
+Podemos center contenido con esta propiedad
+- justify-content:;
+	flex-start | flex-end | center | space-between | space-around
+
+Este nos sirve para alinear los items
+- align-items:;
+	flex-start | flex-end | center | stretch | baseline
+
+
+- align-content:;
+	IMPORTANTE: Esta propiedad solo funciona cuando hay mas de una linea de elementos.
+
+	flex-start | flex-end | center | stretch | space-between | space-around
+
+
+=================================
+Propiedades de los elementos hijo
+=================================
+
+- order:;
+
+- flex-grow:;
+	Acepta un numero que servira de proporcion para hacer crecer el elemento en relacion a los otros.
+
+	Si todos los elementos tienen flex-grow 1 el espacio restante se distribuira entre los elementos.
+
+- flex-shrink:;
+	Define la habilidad de un elemento para hacerse mas pequeño.
+	Es decir si queremos que un elemento se quede en un tamaño fijo
+
+	Por defecto todos se pueden hacer mas pequeños pero si le ponemos flex-shrink 0 el elemento no podra ser mas pequeño que su ancho especificado.
+
+- flex-basis:;
+	Nos permite especificar el valor inicial que tendra un elemento. Es decir como el width
+
+
+- flex:1 1 auto;
+	Es un atajo para flex-grow, flex-shrink y flex-basis
+
+- align-self:;
+	auto | flex-start | flex-end | center | baseline | stretch;
+
+	Esto sirve para alinear un solo elemento
+
+
+
+
+***************CUANDO POR EJEMPLO QUIERAS QUE CUANDO SE EJECUTE UNA PSEUDOCLASE EN UNA ETIQUETA Y SE CAMBIO LOS ESTILOS A OTRA SERIA ASI***************+
+
+
+
+// Aqui decimos que cuando se haga un hover en 'mi_clase' el otro elemento 'mi_clase2' se cambie sus estilos
+.mi_clase:hover .mi_clase2{
+	background: #000;
+}

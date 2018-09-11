@@ -1,0 +1,77 @@
+HAY DOS TIPOS DE ARCHIVOS EN SASS
+
+LOS
+
+.scss
+.sass
+
+
+La diferencia en cada uno es que en scss la sintaxis es muy normal a la de css, solo que podras escribir codigo anidado.
+la diferencia en sass es que no tendrás que usar llaves ni punto y coma, una sintaxis parecida a la de python
+
+
+COMPILAR ARCHIVOS
+
+lo hacemos con la consola de ruby con el siguiente comando
+
+sass archivo_sass:archivo_css
+
+y para cuando no querramos estar compilando el archivo con cada cambio usamos el siguiente
+
+sass --watch archivo_sass:archivo_css}
+
+
+PSEUDO CLASES
+
+para ponerle pseudoclases a un elemento lo hacemos de esta forma
+
+//Accedemos al elemento
+a
+	//Luego aqui dentro usamos el caracter '&' junto con la pseudoclase
+	&:hover
+		pass
+
+
+**IMPORTAR ARCHIVOS**
+
+Por ejemplo cuando querramos dividir código css en varios archivos debemos usar import.
+
+primero debemos crear el archivo con la extension sass y anteponiendo el guion bajo el nombre _
+
+_archivo.sass
+
+Lo importariamos en el sass principal asi
+
+@import archivo
+
+ahora una vez compile todos los estilos de archivo los tendra nuestro archivo sass actual
+
+
+**MIXINS**
+
+Los mixin son como las funciones de lenguajes de programacion
+
+este es el ejemplo de la creacion de un mixin y su uso
+
+@mixin nombre( $argumento1, $argumento2 ... $argumento_n)
+	estilos..
+
+
+dentro del mixin ponemos todos lo que queremos procesar con los argumentos pasados.
+
+su uso es de esta forma
+
+
+@include nombre()
+
+
+
+**CLASES EXTENDIDAS**
+Son clases en la que podemos poner estilos y anidarlas a una estructura, por ejemplo
+
+.clase
+	estilos..
+
+body
+	// De esta forma integramos todos los estilos de la clase ".clase"
+	@extends .clase

@@ -1,0 +1,354 @@
+SINTAXIS
+
+las etiquetas van entre comillas y por ejemplo document va sin comillas.
+$(selector, selector2 ... selectorn).accion();
+$(.clase, .clase2 ... .clasen).accion();
+$(#id, #id2 ... #idn).accion();
+
+Su acceso a clases, selectores e ides es parecido a css
+
+
+
+// efectos
+// show
+// hide
+// toggle
+// fadeIn
+// fadeOut
+// fadeToggle
+// slideDown
+// slideUp
+
+// $('.caja').hide(3000, function(){
+// 	alert("oculto");
+// });
+
+// $('.caja').toggle(2000);
+
+// lo muestra
+// $('.caja').fadeIn(1000);
+// lo oculta
+// $('.caja').fadeOut(1000);
+// muestra y oculta
+// $('.caja').fadeToggle(1000);
+
+// los muestra en forma de linea por ejemplo los menus que se abren hacia abajo
+// $('.caja').slideDown(1000);
+// $('.caja').slideUp(1000);
+
+
+
+// Accediendo al elemento padre
+// var childParent = $('#tercera').parent();
+// alert( childParent );
+
+// Modificando estilos css de un elemento
+// childParent.css({
+// 	background: '#1b3d82'
+// });
+
+// Elementos hijo
+
+// $('#padre').children().fadeOut(500);
+
+// esta seria la forma en que accederiamos solo a uno de sus elementos hijo
+// $('#padre').children('#tercera').fadeOut(500);
+
+// Find
+
+// con este metodo buscamos dentro de sus elementos hijo 
+// $('#contenedor').find('div.caja').slideUp();
+
+// Siblings
+
+// este selecciona todos sus elementos hermanos excluyendose a si mismo
+// $('#tercera').siblings().fadeOut(1500);
+
+// next - prev - nextAll - prevAll
+
+// // Sirve para seleccionar uno o todos los elementos siguientes o anteriores
+// $('#tercera').prev().css({
+// 	background: '#000'
+// })
+
+// $('#tercera').prevAll().css({
+// 	background: '#000'
+// })
+
+// $('#tercera').next().css({
+// 	background: '#000'
+// })
+
+// $('#tercera').nextAll().css({
+// 	background: '#000'
+// })
+
+
+// obtenemos todos los elementos .caja y seleccionamos el primero
+// $('.caja').first().css({
+// 	background: '#000'
+// });
+
+// obtenemos todos los elementos .caja y seleccionamos el último
+// $('.caja').last().css({
+// 	background: '#000'
+// });
+
+// con eq accedemos a un elemento por su index
+// $('.caja').eq(4).css({ background: '#000'})
+
+// filtros.. Con esto vas a poder introducir filtros en los que seleccionaras segun la clase, id o referencia buscada.
+
+// por ejemplo con filter buscamos todos los elementos que tengan la id segunda y les aplica el estilo
+// incluyente
+// $('.caja').filter('#segunda').css({background: "#f9a03f"});
+
+// con not buscamos todas las id que sea diferentes a segunda
+// Excluyente
+// $('.caja').not("#segunda").css({background: "#f9a03f"});
+
+
+
+// var boton = $('#boton');
+
+// boton.click(function(){
+// 	alert("hola");
+// })
+
+
+// el primer metodo para asignar eventos es de esta forma
+// boton.click( saludo );
+
+// function saludo(){
+// 	alert("hola");
+// 	console.log("evento ejecutado");	
+// }
+
+// // la segunda forma es usando on y pasandole dos parametros que son: el evento y la funcion callback
+// boton.on('click', saludo );
+
+// // Esta seria la forma en que eliminariamos un evento, usando off y pasandole como parametro el tipo de evento que vamos a desvincular
+// $('#des').on('click', function(){
+// 	boton.off('click');
+// 	console.log("evento ejecutar desactivado");
+// });
+
+// Previniendo comportamientos
+
+// Asi prevenimos su comportamiento
+// $('a').on('click', function(e){
+// 	e.preventDefault();
+// })
+
+
+
+// Aqui al this se accede como si fuese una clase, id o selector
+// $('.caja').on("click", function(){
+// 	$(this).toggleClass("color");
+// })
+
+
+
+
+** ANIMACIONES **
+
+$(selector).animate( { parametros }, velocidad, callback )
+
+Ejemplo de una animacion:
+
+$("#boton").on("click",function(){
+	$("#caja").animate( {
+		// width: "300px"
+		// opacity: "0.2"
+
+		// Esta es una tecnica para autoincremento, anteponiendo el signo=
+
+		// +=, -=
+		// width: "+=300px"
+
+		// Las propiedades que en antes llevaban guiones, en jQuery ya no lo hacen
+		// Se quita el guion y se une la primera letra poniendola en mayuscula
+		marginLeft: "+=20px"
+	}, 300, function(){
+		// alert("animacion finalizada");
+	});
+
+	$("#caja").animate( {
+		marginLeft: "-=50px"
+	}, 300);
+
+})
+
+
+
+** PARAR ANIMACIONES **
+
+Metodo STOP
+
+.stop(limpiarColaAnimaciones [ bool true or false ], saltarAlFinal [ bool true or false ] );
+// $(".caja").stop(true, false);
+
+
+** MANIPULANDO EL DOM **
+
+para modificar el texto de un elemento es asi
+
+$(selector).text()
+
+y cuando por ejemplo querramos añadir etiquetas html directamente lo hacemos asi:
+$(selector).html()
+
+
+Para modificar atributos lo hacemos de esta forma
+
+$(selector).attr( atributo, valor );
+
+Cuando querramos modificar multiples atributos usaremos objetos
+
+$(selector).attr({
+	'class1': value,
+	'class2': value
+});
+
+
+
+AGREGANDO ELEMENTOS
+
+Para crear un elemento solo basta hacerlo de esta forma:
+
+var new_element = $("<div></div>");
+
+sencillo, podemos ponerle atributos y texto.
+
+Ahora para insertarlo dentro de un contenedor padre es asi:
+
+// el orden de secuencia a agregar es asi: 1, 2, 3, 4, 5, 6.
+contenedor_padre.append(new_element);
+
+
+// el orden de secuencia a agregar es asi: 6, 5, 4, 3, 2, 1.
+contenedor_padre.prepend(new_element);
+
+// De esta forma no lo estamos insertando dentro si no fuera, colocandolo antes del elemento padre
+contenedor_padre.before(new_element);
+
+
+// De esta forma no lo estamos insertando dentro si no fuera, colocandolo despues del elemento padre
+contenedor_padre.after(new_element);
+
+
+ELIMINAR ELEMENTOS
+
+tenemos tres formas de hacerlo
+
+usando remove, aqui estamos eliminado todo hasta el contenedor
+// $("#contenedor").remove();
+
+Con esto estamos eliminando a todos los elementos hijo del contenedor
+// $("#contenedor").children().remove();
+
+Con esto estamos eliminado a todos los elementos hijo del contenedor.
+// $("#contenedor").empty();
+
+
+
+CLASES
+
+
+.addClass( );
+.removeClass( );
+.toggleClass( );
+
+
+
+CSS
+
+.css( {
+	// propiedades
+})
+
+
+
+
+Unidades de medida
+
+nos sirve para calcular el ancho y alto de un elemento
+
+// solo el ancho
+.width();
+// Ancho y padding
+.innerWidth();
+
+// Ancho + padding + bordes
+.outerWidth();
+
+// Ancho + padding + bordes + margin
+.outerWidth(true);
+
+
+// solo el alto
+.height();
+// Alto y padding
+.innerHeight();
+
+// Alto + padding + bordes
+.outerHeight();
+
+// Alto + padding + bordes + margin
+.outerHeight(true);
+
+
+
+** ACCEDER A LA POSICION DE SCROLL DE UN ELEMENTO **
+
+$(selector).offset().top;
+
+
+mover el scroll con animaciones jquery
+
+scrollTop: value
+
+
+
+
+
+// PETICIONES AJAX
+
+// GET Y POST
+
+$.get(link, parametros, callback);
+
+$.post(link, parametros, callback);
+
+
+// Ajax
+
+
+$.ajax({
+	type: ,
+
+	dataType: "json",
+	contentType:'application/json',
+
+	url: uri,
+	data: JSON object,
+
+	// antes del envio
+	beforeSend: () => {
+		// body
+	},
+
+	// al completar satisfactoriamente la peticion
+	success: (response) => {
+		// body
+	},
+	error: () => {
+		// body
+	},
+	
+	// Cual es el tiempo maximo que deberia tardarse en hacerse la peticion
+	// si supera este tiempo tirara un error
+	timeout: 2000
+	
+
+});

@@ -1,0 +1,131 @@
+**ETIQUETAS DE TEXTO**
+
+ETIQUETAS PARA TITULOS
+
+<h1></h1>
+H1
+H2
+.
+.
+.
+H5
+
+ETIQUETAS PARA SALTOS DE LINEA
+
+<br/>
+
+ETIQUETAS PARA ESCRIBIR PARRAFOS
+
+<p></p>
+
+ETIQUETAS PARA NEGRITAS
+
+<b></b>
+
+<strong></strong> : LA DIFERENCIA ES QUE STRONG SE USA PARA HACER ENFASIS A UN TEXTO, UTIL PARA LOS BUSCADORES
+
+<span></span> : TAMBIEN SIRVE PARA HACER ENFASIS SIN PONERLAS EN BOLD.
+
+ETIQUETAS PARA ITALICA
+
+<i></i>
+
+ETIQUETAS PARA PONER CITAR TEXTOS
+
+<cite></cite> CON ESTA ETIQUETA PONEMOS QUIEN ES EL AUTOR DE ESTA CITA
+<blockquote></blockquote> CON ESTA ETIQUETA PONEMOS EL TEXTO A CITAR
+
+
+ETIQUETA PARA INSERTAR UNA LINEA
+
+
+<hr></hr>
+
+POR EJEMPLO QUEDA ASI:
+
+  ----------------------------------------------------------------------------------------------------------------------------
+
+ETIQUETAS PARA ENLACES
+
+<<a href="https://google.com.ec">Google</a>
+
+
+LISTAS
+
+listas con puntitos negros son de esta forma:
+
+<ul>
+	<li>contenido</li>
+</ul>
+
+listas con numeros lo mismo pero con 
+<<ol>
+	<li></li>
+</ol>
+
+IMAGENES
+
+<img src="" alt="">
+
+
+TABLAS
+
+
+<table>
+	
+	//Para encabezados se usa tr junto a th.
+	<tr>
+		<th>Encabezado</th>
+		<th>Encabezado</th>
+		<th>Encabezado</th>
+	</tr>
+	
+	//FILA: tr
+	<tr>
+
+		//COLUMNA: td
+		<td>
+			
+		</td>
+	</tr>
+</table>
+
+
+ESTRUCTURA DE PAGINAS WEB
+
+
+Separador de contenido ( Cajas )
+
+<div>
+	
+</div>
+
+Contenido de ENCABEZADO
+
+<header>
+	
+</header>
+
+PARA EL CONTENIDO PRINCIPAL
+
+<section>
+	
+</section>
+
+PARA BARRAS LATERALES	
+
+<aside>
+	
+</aside>
+
+PARA ARTICULOS
+
+<article>
+	
+</article>
+
+PARA PIE DE PAGINAS
+
+<footer>
+	
+</footer>

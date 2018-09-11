@@ -1,0 +1,71 @@
+Compilar
+
+tsc archivo.ts
+
+
+
+Tipos de datos
+
+number
+string
+Array
+any -> cualquiera de todas las anteriores
+
+se pueden declarar variables con let o var, let es local y var es global.
+
+
+let miVariableLocal: tipo_dato = valor;
+
+let mVL: number = 2;
+
+
+
+
+* Funciones
+
+-estructura
+
+function( variable: tipo_dato ):tipo_dato_retorno{
+	
+}
+
+function miFuncion( numero: number ):string{
+	return "Este es mi numero: " + mi_numero;
+}
+
+
+Clases
+
+estructura
+
+class nombreClase{
+	public | private propiedad: tipo_dato;
+	public | private propiedad_2: tipo_dato_2;
+	public | private propiedad_n: tipo_dato_n;
+
+	constructor( args ){
+		this.propiedad = args;
+	}
+
+
+	funciones..
+}
+
+// interfaces
+
+interface nombre{
+	metodo( args );
+}
+
+se la implementa de esta forma:
+
+class myClase implements nombreInterface{
+	
+}
+
+La herencia
+
+
+class myChildClass extends myParentClass{
+	
+}

@@ -1,0 +1,221 @@
+Para obtener informacion acerca de un comando..
+
+
+git --help comando
+
+example:
+
+git --help commit
+
+
+Crear un usuario:
+git config --global user.name  "nombre_user"
+git config --global user.email "email_user"
+
+CREAR UN REPOSITORIO
+
+git init
+
+
+LISTAR EL STATUS DE ARCHIVOS
+
+( en verde los que estan en el estage para commit y en rojo los modificados y que no estan para el commit )
+git status -s
+
+
+RESTAURAR TODO EL REPOSITORIO DESDE EL ULTIMO COMMIT
+
+git checkout -- .
+
+Borremos lo que borremos si usamos ese comando se va a restaurar desde el ultimo commit
+
+
+
+** añadir al stage **
+
+git add archivo
+
+git add "*.txt"             -> estamos agregando todos los archivos de extension txt del repositorio
+git add *.text              -> Agregamos todos los archivos de extension txt del directorio actual
+git add --all               -> Agregamos todo
+git add -A                  -> Agregamos todo
+git add carpeta/archivo.txt -> lo agregamos a partir del directorio
+
+
+** QUITAR ARCHIVOS DEL STAGE **
+
+git reset archivo
+git reset "*.txt"             -> estamos quitando todos los archivos de extension txt del repositorio
+git reset *.text              -> quitamos todos los archivos de extension txt del directorio actual
+git reset --all               -> quitamos todo
+git reset carpeta/archivo.txt -> lo quitamos a partir del directorio
+
+** registrar el commit **
+
+git commit -m "Informacion del commit"
+
+// con esto hacemos directamente el staged y agregamos al commit
+git commit -am "Informacion del commit"
+
+
+
+LOGS
+
+Para listar todos los commits podemos hacelo con este comando:
+
+git log --oneline --all --decorated --graph
+
+
+CONFIGURANDO ALIAS 
+
+
+
+los creamos de esta forma:
+
+
+git config --global alias.nombre_alias "parametros"
+
+lo ejecutamos asi
+
+git nombre_alias
+
+ejemplo
+
+git config --global alias.s "status -s"
+
+git s
+
+
+
+VER LOS CAMBIOS REALIZADOS EN UN ARCHIVO
+
+git diff
+
+Ahora por ejemplo si enviamos ese archivo al staged ya no podremos ver los cambios con ese comando por lo que tenemos que usar parametros
+
+git diff --staged
+
+
+
+RESTAURAR UN ARCHIVO DESDE EL COMMIT
+
+por ejemplo queremos resetear un archivo desde el ultimo commit, lo hacemos de esta forma
+
+
+git checkout -- nombreArchivo.ext
+
+
+
+ACTUALIZAR EL TEXTO DEL ULTIMO COMMIT
+
+git commit --amend -m "Mensaje de actualizacion"
+
+Eliminar el ultimo commit
+
+git reset --soft HEAD^
+
+
+VIAJES EN EL TIEMPO Y RESETS
+
+// Por ejemplo cuando querramos regresar a un cierto commit podemos copiar su hash desde el log y hacer un reset.
+
+git reset --mixed 0b5f639
+
+usando mixed los archivos se borran del commit pero dentro de tu carpeta no se borran ni se modifican y tampoco se muda al stage
+
+git reset --hard 0b5f639
+
+Ahora usando hard y regresemos a cierto commit, todos los archivos que fueron creados despues de ese cierto commit o modificados, se borraran.
+
+
+** RESTAURAR COMMITS **
+
+git lleva un registro de todo y si por ejemplo borramos algo con hard y queremos restaurarlo podemos hacerlo primero consultando con reflog:
+
+git reflog
+
+se mostrara un listado de todo lo que se ha hecho en el repositorio, incluyendo cada uno su hash
+
+Entre los registros buscamos el commit al que querramos regresar y copiamos su hash
+
+git reset --hard 0b5f639
+
+Usamos de igual manera hard y todos los archivos seran restaurados
+
+
+** CAMBIAR DE NOMBRE A LOS ARCHIVOS Y BORRARLOS **
+
+git mv archivo.ext new_archivo.txt
+
+
+git rm archivo.ext
+
+
+
+** PARA IGNORAR ARCHIVOS INNECESARIOS **
+
+Necesitamos crear un archivo llamado: .gitignore
+no le fijaremos ningun tipo de nombre, dentro del archivo escribimos que archivos queremos que se ignoren
+luego hacemos commit al .gitignore y listo.
+
+
+* CREANDO RAMAS SECUNDARIAS *
+
+Por ejemplo cuando queramos construir ramas secundarias en donde haremos commits de archivos que aun no pensamos implementar en la rama master lo hacemos de esta forma:
+
+git branch nombre_rama
+
+Para crear una rama y movernos automaticamente
+
+git checkout -b nombre_rama
+
+Para consultar las ramas creadas y en cual nos encontramos
+
+git branch
+
+Ahora para cambiarnos de rama basta con hacer:
+
+git checkout nombre_rama
+
+Para eliminar una rama usamos
+
+git branch -d nombre_rama 
+
+
+AHORA CUANDO QUERRAMOS UNIR LA RAMA SECUNDARIA A LA MASTER, TENEMOS QUE POSICIONARNOS EN LA MASTER Y USAR ESTE COMANDO:
+
+git merge rama-villanos
+
+
+TAGS
+Por ejemplo son los que le ponemos para referirnos a una version del proyecto, los asignamos de esta forma
+
+git tag -a nombre_tag hash -m "mensaje de tag"
+
+git tag -a v1.0.0 b0827f90 -m "Primera version del programa"
+
+
+Mostrarla informacion del tag
+
+show nombre_tag
+
+
+
+**STASH**
+
+Estos se usan cuando queramos guardar algo temporal, por ejemplo digamos que estamos trabajando en X archivo y nos piden que hagamos cambios en Y archivo, entonces vamos a guardar el X archivo en el stash de esta forma
+
+git stash
+
+Ahora trabajamos en el archivo Y, para ver la lista de stash lo hacemos de esta forma
+
+git stash list
+
+Hacemos el commit de la modificacion del archivo Y, ahora podemos restaurar nuestros archivos del stash:
+
+git stash pop    -> restauramos el ultimo stash
+
+
+Eliminando el ultimo registro del stash
+
+git stash drop

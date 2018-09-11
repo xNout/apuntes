@@ -1,0 +1,12 @@
+Cuando creamos un repositorio en github, nos da un enlace remoto para hacer los push.
+
+Cuando hacemos un push por defecto los tags no se suben, debemos hacerlos manualmente.
+
+git push --tags
+
+Cuando hayamos hecho cambios directos en github o otra persona lo haya hecho podemos descargar esos cambios a nuestro repositorio local con:
+
+git pull
+
+
+Cuando por ejemplo hacemos cambios en nuestro repo local y luego en el repo de github hay cambios adelantados que no tenemos, debemos usar git fetch y luego git pull para descargar esos cambios.

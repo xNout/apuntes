@@ -1,0 +1,117 @@
+VARIABLES
+
+las variables se declaran inicializando con 'var'
+
+var nombre_variable = value;
+
+OBJETOS ( algo como diccionarios )
+
+var objeto = 
+{
+	color : "Black",
+	width : 500
+}
+
+
+OPERADORES
+
+=== ESTE SIRVE PARA COMPARAR QUE DOS VALORES SEAN IGUALES EN EL VALOR por ejemplo
+
+18 === "18" -> true;
+
+18 == "18" -> false;
+
+FUNCIONES ( Retornan cualquier tipo )
+
+
+//funciones
+function nombre_funcion( args )
+{
+	return 0;
+}
+
+Las funciones son objetos y como son objetos les podemos asignarle propiedades, metodos y campos.
+Por ejemplo:
+
+nombre_funcion.propiedad = valor;
+
+//Metodos y THIS
+
+var object =
+{
+	propiedad1: valor,
+	propiedad2: valor,
+	metodo: function(){
+
+		//Para acceder a las propiedades de fuera debemos usar 'this'
+		console.log(this.propiedad1);
+
+		//Ya que directamente no es posible acceder a la propiedad si no es usando el this
+	}
+}
+
+//PROTOTIPOS
+
+Los prototipos por ejemplo se usan cuando quieres añadir una propiedad o metodo a un objeto personalizado o a una clase.
+Por ejemplo, creamos un objeto con todo y sus propiedades, ahora queremos añadir ( fuera del objeto, osea en tiempo de ejecucion ) un metodo, entonces como lo hacemos, de esta forma:
+
+Clase.prototype.nombre_function = function(){
+	return 0;
+}
+
+Ahora este prototipo fue añadido a la clase y podemos acceder a ella.
+
+//TYPEOF Y INSTANCEOF
+
+typeof( args ) nos sirve para saber el tipo de un elemento y instaceof nos sirve para saber si un objeto es instancia de una clase.
+
+objeto instanceof Clase
+
+//MANIPULACION DEL DOM ( Document Object Model )
+
+//PARA OBTENER EL VALOR DE UN OBJETO DEL DOCUMENTO HTML
+
+Por ejemplo esta caja de texto tiene un ID, ese ID lo usaremos para obtener su valor en código JavaScript
+
+<input type="text" id="caja_texto">
+
+
+DE ESTA FORMA:
+
+var valor_caja = document.getElementById("caja_texto").value;
+
+//Creando objetos
+
+Crea un objeto
+document.createElement( element type )
+
+Agregale texto o cualquier otra cosa
+
+document.createTextNode( texto )
+
+Unelos
+
+objeto.appendChild( child )
+
+O si no queremos agregarlo siempre al último usamos esto:
+
+objeto.insertBefore( child, referencia );
+
+OTROS:
+
+replaceChild( child, referencia )
+removeChild( referencia )
+
+
+PARA Agregar atributos
+
+objeto.setAtributte( atributo, valor )
+
+
+
+FUNCIONES PARA FECHAS
+
+
+setInterval( );
+
+clearInterval( );

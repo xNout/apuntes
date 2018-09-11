@@ -1,0 +1,124 @@
+GRID DE BOOTSTRAP
+
+Es una GRID FORMADA POR 12 COLUMNAS, como por ejemplo las columnas que hicimos en photoshop para diseñar el portafolio
+
+
+<!-- 
+	Medidas          Dispositivo
+	===========================================
+	xs - Extra small Telefonos y MENOS DE 768px
+	sm - Small       Tables y MAS de 768px
+	md - Medium      Computadoras y MAS de 992px
+	lg - Large       Computadoras, Pantallas y MAS de 1200px
+-->
+
+
+Un archivo HTML siempre debe estar todo su contenido dentro de un div con la clase .container
+
+<div class="container">
+
+	y todo separador debe llevar un row
+	<header class="row"> 
+
+		cada contenido dentro debe llevar su tamaño de columna
+
+		Podemos agregar responsive design desde aqui
+
+		// col-xs-12 col-sm-6 col-md-6 col-lg-9
+
+		// Especificando las medidas en extra pequeño, pequeño, medio y largo.
+		<div class="col-sm-6"> 
+		</div>
+	</header>
+</div>
+
+
+// Offsets 
+
+// Con esto podemos decidir desde que columna empieze un elemento
+<div class="row">
+	<div class="col-md-2 col-md-offset-2 caja">
+		<h2>Caja</h2>
+	</div>
+</div>
+
+// Columnas anidadas
+
+Son como los IF anidados, uno dentro de otros.
+
+Ejemplo:
+
+// Creamos una fila
+<div class="row">
+
+	// y una columna que de 8
+	<div class="col-md-8">
+
+		//Ahora aqui dentro creamos otra fila
+		// Esta fila va a tomar el tamaño de las 8 columnas
+		<div class="row">
+
+			// es decir las 12 columnas de aqui se adaptaran a la columna primaria
+			<div class="numero col-md-1">1</div>
+			<div class="numero col-md-1">2</div>
+			<div class="numero col-md-1">3</div>
+			<div class="numero col-md-1">4</div>
+			<div class="numero col-md-1">5</div>
+			<div class="numero col-md-1">6</div>
+			<div class="numero col-md-1">7</div>
+			<div class="numero col-md-1">8</div>
+			<div class="numero col-md-1">9</div>
+			<div class="numero col-md-1">10</div>
+			<div class="numero col-md-1">11</div>
+			<div class="numero col-md-1">12</div>
+		</div>
+
+		<div class="row">
+			<div class="numero col-md-6">1</div>
+			<div class="numero col-md-6">2</div>
+		</div>
+	</div>
+</div>
+
+
+// Clearfix
+
+Cuando por ejemplo exista contenido dentro de una fila que sea más grande que los otros, y al verse en resoluciones más pequeñas se vean mal, lo fixearemos asi:
+
+<div class="clearfix visible-xs visible-sm"></div>
+
+
+
+
+// TABLAS
+
+
+Agregamos una tabla normal y solo basta con agregar unas clases
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+a las filas podemos agregar colores que son de este tipo: <!--  active, success, warning, danger, info --> Cada una en una clase
+
+
+// ELEMENTOS VISIBLES SEGUN EL TAMAÑO DEL DISPOSITIVO
+
+<!-- 
+Class:			Visible en:
+===========================
+.visible-xs 	Visible SOLO en disposivos extra pequeños
+.visible-sm 	Visible SOLO en disposivos pequeños
+.visible-md 	Visible SOLO en disposivos medianos
+.visible-lg 	Visible SOLO en disposivos largos
+
+.hidden-xs 		Visible en TODOS menos en dispositivos extra pequeños
+.hidden-sm 		Visible en TODOS menos en dispositivos pequeños
+.hidden-md 		Visible en TODOS menos en dispositivos medianos
+.hidden-lg 		Visible en TODOS menos en dispositivos largos
+ -->
+
+<div class="caja col-sm-12">
+	<h2 class="visible-xs">Tamaño Extra Pequeño</h2>
+	<h2 class="visible-sm">Tamaño Pequeño</h2>
+	<h2 class="visible-md">Tamaño Mediano</h2>
+	<h2 class="visible-lg">Tamaño Largos</h2>
+</div>
